@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# make an empty the PATH and check if /bin/ls still works
+# Make empty the PATH and check if /bin/ls still works
 
 command="/bin/ls"
 tmp_file="checker_tmp_file_$RANDOM"
