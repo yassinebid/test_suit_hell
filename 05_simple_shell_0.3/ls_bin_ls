@@ -2,6 +2,7 @@
 #
 # run a mix of ls and /bin/ls many times
 
+#command ls
 command="ls
 ls
 ls
