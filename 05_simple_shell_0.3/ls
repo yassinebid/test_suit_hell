@@ -5,7 +5,6 @@
 command="ls"
 tmp_file="checker_tmp_file_$RANDOM"
 
-# clean up
 stop_shell
 rm -f $tmp_file
 
