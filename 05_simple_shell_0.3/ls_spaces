@@ -1,7 +1,8 @@
 #!/bin/bash
 #
-# run ls with spaces everywhere
+# run ls with spaces everywher
 
+#ls command
 command="ls
      ls
 ls     
