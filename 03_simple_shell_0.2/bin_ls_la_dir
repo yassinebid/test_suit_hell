@@ -1,1 +1,33 @@
-q
+#!/bin/bash
+#
+# Run ls with arguments
+
+tmp_file=".checker_tmp_file_$RANDOM"
+tmp_filedir="/tmp"
+tmp_filepath="$tmp_filedir/$tmp_file"
+command="/bin/ls -la $tmp_filedir/"
+
+# Clean up
+stop_shell
+rm -f $tmp_filepath
+
+# Create a pseudo random file
+touch $tmp_filepath
+chmod 761 $tmp_filepath
+# Send commands
+echo "$command" | $SHELL > $OUTPUTFILE 2> /dev/null &
+
+# Wait a little bit
+$SLEEP $SLEEPSECONDS
+
+# Check the result
+nmatch=`cat "$OUTPUTFILE" | grep "$tmp_file" | grep -c "rwxrw---x"`
+if [ $nmatch -eq 1 ]; then
+	   print_ok
+else
+	   print_ko
+fi
+
+# Clean up
+stop_shell
+rm -f $tmp_filepath
